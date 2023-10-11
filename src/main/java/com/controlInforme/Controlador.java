@@ -226,8 +226,9 @@ public class Controlador implements EventHandler<ActionEvent> {
                 stage2.show();
                 Operaciones operaciones = new Operaciones();
                 operaciones.sumaDatos();
+                operaciones.restoHoras();
 
-                totales.setText("-" + mes.getMonth() + "-" + "\n" + operaciones.sumaDatos());
+                totales.setText("-" + mes.getMonth() + "-" + "\n" + operaciones.sumaDatos() + "\n"+"Horas restantes: " + operaciones.restoHoras());
 
                 break;
 

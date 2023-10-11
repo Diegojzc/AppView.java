@@ -49,6 +49,26 @@ public class Operaciones {
         }
         return "Horas: " + sumas+"\n"+ "Publicaciones: "+ sumaP+ "\n" + "Revisitas: " + sumaR+"\n" + "Cursos: "+ sumaC;
     }
+    public double restoHoras(){
+        int suma=0;
+        double h =50;
+        double total=0;
+        try {
+            InformeDao informeDao = new InformeDao();
+            List<Informe> horas =informeDao.horasRestantes();
+            for (Informe hora : horas) {
+                suma+= hora.getHoras();
+                 total = h-suma;
+                System.out.println(hora);
+
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return total;
+    }
+
     }
 
 

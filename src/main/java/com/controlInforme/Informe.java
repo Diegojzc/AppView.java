@@ -2,19 +2,20 @@ package com.controlInforme;
 
 
 public class Informe {
-
+    public String tiempo;
     public int publicaciones;
     public double horas;
     public int revisitas;
     public int cursos;
-    public String tiempo;
+
 
     public Informe( String tiempo, int publicaciones, double horas, int revisitas, int cursos) {
+        this.tiempo = tiempo;
         this.publicaciones = publicaciones;
         this.horas = horas;
         this.revisitas = revisitas;
         this.cursos = cursos;
-        this.tiempo = tiempo;
+
 
     }
     public Informe(int publicaciones, double horas, int revisitas, int cursos ){
@@ -23,7 +24,11 @@ public class Informe {
         this.revisitas= revisitas;
         this.cursos = cursos;
     }
+    public Informe(double horas ){
 
+        this.horas=horas;
+
+    }
 
     public int getPublicaciones() {
         return publicaciones;

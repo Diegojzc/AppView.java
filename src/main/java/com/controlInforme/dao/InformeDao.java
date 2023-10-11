@@ -3,7 +3,6 @@ package com.controlInforme.dao;
 import com.controlInforme.Informe;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +11,11 @@ public class InformeDao{
     private Connection coneccion;
 
 
-    public InformeDao()throws SQLException{
+    public InformeDao() throws SQLException{
         connectar();
     }
+
+
     public void connectar()throws SQLException {
         String url = "jdbc:sqlite:info.db";
         coneccion = DriverManager.getConnection(url);
@@ -89,6 +90,17 @@ public class InformeDao{
         statement.executeUpdate();
 
 
+    }
+    public List<Informe> horasRestantes()throws SQLException{
+        String sql = "SELECT horas FROM info";
+        PreparedStatement statement = coneccion.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        List<Informe> resto = new ArrayList<>();
+        while(resultSet.next()){
+            Informe informe = new Informe(resultSet.getDouble(1));
+            resto.add(informe);
+        }
+        return resto;
     }
 
 
